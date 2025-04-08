@@ -42,10 +42,8 @@ public class MainController {
 
 
     public void addStudent() {
+        Student student = new Student(nameField.getText(), ageSpinner.getValue());
         em.getTransaction().begin();
-        Student student = new Student();
-        student.setName(nameField.getText());
-        student.setAge(ageSpinner.getValue());
         em.persist(student);
         em.getTransaction().commit();
         updateTable();
